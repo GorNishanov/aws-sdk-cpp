@@ -179,7 +179,7 @@ namespace Aws
             bool operator!=(const Array& other) const
             {
                 return !(*this == other);
-            }           
+            }
 
             T const& GetItem(size_t index) const
             {
@@ -236,6 +236,7 @@ namespace Aws
             CryptoBuffer(CryptoBuffer&& other) : ByteBuffer(std::move(other)) {}
             CryptoBuffer& operator=(const CryptoBuffer&) = default;
             CryptoBuffer& operator=(CryptoBuffer&& other) { ByteBuffer::operator=(std::move(other)); return *this; }
+            bool operator==(const ByteBuffer& other) const { return ByteBuffer::operator==(other); }
             bool operator==(const CryptoBuffer& other) const { return ByteBuffer::operator==(other); }
             bool operator!=(const CryptoBuffer& other) const { return ByteBuffer::operator!=(other); }
 
